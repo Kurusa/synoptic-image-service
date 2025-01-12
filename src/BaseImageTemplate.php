@@ -85,7 +85,7 @@ abstract class BaseImageTemplate
     {
         $filename = 'image_' . uniqid() . '.png';
 
-        $publicPath = __DIR__ . '/resources/backgrounds/' . $filename;
+        $publicPath = __DIR__ . '/resources/images/' . $filename;
 
         imagepng($this->image, $publicPath);
 
