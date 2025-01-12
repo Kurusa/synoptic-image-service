@@ -7,7 +7,7 @@ require_once 'src/WeeklyImageTemplate.php';
 use App\Services\Image\DarkImageTemplate;
 use App\Services\Image\WeeklyImageTemplate;
 
-$templateType = $_POST['template'] ?? 'weekly';
+$templateType = $_POST['type'] ?? 'weekly';
 
 $templateClass = match ($templateType) {
     'weekly' => WeeklyImageTemplate::class,
