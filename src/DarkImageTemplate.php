@@ -11,7 +11,7 @@ class DarkImageTemplate extends BaseImageTemplate
 
     protected function renderDate(): void
     {
-        $date = strtoupper($this->texts[strtolower(date('l'))] . ' ' . date('H:i', strtotime($this->weatherData['current']['dt'])));
+        $date = strtoupper($this->texts[strtolower(date('l'))] . ' ' . date('H:i', strtotime('+2 hours', strtotime($this->weatherData['current']['dt']))));
 
         $this->placeText($date, 40, 0.18);
     }
@@ -42,7 +42,7 @@ class DarkImageTemplate extends BaseImageTemplate
         $labelText = time() > $sunrise ? $this->texts['sunrise_text'] : $this->texts['sunset_text'];
         $labelY = $this->getY($labelText, $iconCoordinates);
 
-        $timeText = date('H:i', (time() > $sunrise ? $sunset : $sunrise));
+        $timeText = date('H:i', strtotime('+2 hours', (time() > $sunrise ? $sunset : $sunrise)));
         $timeFontSize = (int) ($this->width / 30);
         $timeFontFile = $this->getDefaultFont();
         $timeBox = imagettfbbox($timeFontSize, 0, $timeFontFile, $timeText);
